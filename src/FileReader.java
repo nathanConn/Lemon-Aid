@@ -5,27 +5,26 @@ import java.io.IOException;
 import java.util.Iterator;
 
 
-
 public class FileReader {
 	public static final String SAMPLE_XLSX_FILE_PATH = "Car Auction.xlsx";
 
 	
 
 	public static void main(String[] args) throws IOException, InvalidFormatException {
-		// Creating a Workbook from an Excel file (.xls or .xlsx)
+		// Creating a Workbook from an Excel file
         Workbook workbook = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH));
 
         // Retrieving the number of sheets in the Workbook
-        System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
+        System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets: ");
         
         /*
         =============================================================
-        Iterating over all the sheets in the workbook (Multiple ways)
+        Iterating over all the sheets in the workbook
         =============================================================
      */
 
-     // 1. You can obtain a sheetIterator and iterate over it
-     Iterator<Sheet> sheetIterator = workbook.sheetIterator();
+     // Obtain a sheetIterator and iterate over it
+     Iterator<Sheet> sheetIterator = workbook.sheetIterator(); 
      System.out.println("Retrieving Sheets using Iterator");
      while (sheetIterator.hasNext()) {
          Sheet sheet = sheetIterator.next();
@@ -33,8 +32,8 @@ public class FileReader {
      }
      
      /*
-     ==================================================================
-             Iterating over all the rows and columns in a Sheet (Multiple ways)
+     		 ==================================================================
+             Iterating over all the rows and columns in a Sheet
              ==================================================================
           */
 
@@ -44,7 +43,7 @@ public class FileReader {
           // Create a DataFormatter to format and get each cell's value as String
           DataFormatter dataFormatter = new DataFormatter();
 
-          // 1. You can obtain a rowIterator and columnIterator and iterate over them
+          // Obtain a rowIterator and columnIterator and iterate over them
           System.out.println("\n\nIterating over Rows and Columns using Iterator\n");
           Iterator<Row> rowIterator = sheet.rowIterator();
           while (rowIterator.hasNext()) {
